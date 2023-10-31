@@ -19,8 +19,8 @@
     <header>
         {% block header %}{% endblock %} 
     </header>
-    {%for message in flashed_messages() %}
+    {% for message in get_flashed_messages() %}
         <div class="flash"> {{ message }}</div>
     {% endfor %}
-    {% blockcontent %}{% endblock %}
+    {% block content %}{% endblock %}
 </section>
