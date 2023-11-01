@@ -39,7 +39,7 @@ def register():
             except db.IntegrityError:
                 error = f"User {username} is already registered."
             else:
-                return redirect(url_for("auth_login"))
+                return redirect(url_for("auth.login"))
         flash(error)
     return render_template('auth/register.html')
 
@@ -77,7 +77,7 @@ def login():
 # checks db for user_id in session, then grabs that data fpr storage in g.user
 @bp.before_app_request
 def load_logged_in_user():
-    user_id - session.get('user_id')
+    user_id = session.get('user_id')
 
     if user_id is None:
         g.user = None
